@@ -17,9 +17,10 @@ from requests.packages import urllib3
 
 urllib3.disable_warnings()
 
-print('当前版本11.9')
+print('当前版本12.0')
 print('作者ikun、wxy1343')
 print('声明:请勿用于商业用途,否则后果自负')
+print('增加清单库: BlankTMing/ManifestAutoUpdate')
 
 def gen_config():
     default_config = {
@@ -51,14 +52,12 @@ def get(branch, path):
                 f'https://github.moeyy.xyz/https://raw.githubusercontent.com/isKoi/Manifest-AutoUpdate/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/lls7890/Repository/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/isKoi/Manifest-AutoUpdate/{branch}/{path}',
-                f'https://mirror.ghproxy.com/https://raw.githubusercontent.com/lls7890/Repository/{branch}/{path}',
-                f'https://mirror.ghproxy.com/https://raw.githubusercontent.com/isKoi/Manifest-AutoUpdate/{branch}/{path}',
                 f'https://github.moeyy.xyz/https://raw.githubusercontent.com/qwq-xinkeng/awaqwqmain/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/qwq-xinkeng/awaqwqmain/{branch}/{path}',
-                f'https://mirror.ghproxy.com/https://raw.githubusercontent.com/qwq-xinkeng/awaqwqmain/{branch}/{path}',
                 f'https://github.moeyy.xyz/https://raw.githubusercontent.com/liaofulong/Manifest-AutoUpdate/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/liaofulong/Manifest-AutoUpdate/{branch}/{path}',
-                f'https://mirror.ghproxy.com/https://raw.githubusercontent.com/liaofulong/Manifest-AutoUpdate/{branch}/{path}']
+                f'https://github.moeyy.xyz/https://raw.githubusercontent.com/BlankTMing/ManifestAutoUpdate/{branch}/{path}',
+                f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/BlankTMing/ManifestAutoUpdate/{branch}/{path}']
 
     retry = 30
     while True:
@@ -92,12 +91,13 @@ def get_manifest(branch, path, steam_path: Path, app_id=None):
                 print(f'清单下载成功: {path}')
             with save_path.open('wb') as f:
                 f.write(content)
-        elif path == 'config.vdf':
-            content = get(branch, path)
+        if path.endswith('.vdf') and path not in ['appinfo.vdf']:
+            if path == 'config.vdf' or 'Key.vdf':
+                content = get(branch, path)
             with lock:
                 print(f'密钥下载成功: {path}')
             depots_config = vdf.loads(content.decode(encoding='utf-8'))
-            if depotkey_merge(steam_path / 'config' / path, depots_config):
+            if depotkey_merge(steam_path / 'config' / 'config.vdf', depots_config):
                 print('合并config.vdf成功')
             if stool_add(
                     [(depot_id, '1', depots_config['depots'][depot_id]['DecryptionKey'])
@@ -167,6 +167,7 @@ def main(app_id):
             return True
 
     repos = [
+        'https://api.github.com/repos/BlankTMing/ManifestAutoUpdate',
         'https://api.github.com/repos/lls7890/Repository',
         'https://api.github.com/repos/isKoi/Manifest-AutoUpdate',
         'https://api.github.com/repos/qwq-xinkeng/awaqwqmain',
@@ -249,7 +250,7 @@ def app(app_path):
                 depot_cache_path = steam_path / 'depotcache'
                 shutil.copy(file, depot_cache_path)
                 print(f'导入清单成功: {file.name}')
-            elif file.name == 'config.vdf':
+            elif file.name == 'config.vdf' or 'Key.vdf':
                 with file.open('r', encoding='utf-8') as f:
                     depots_config = vdf.loads(f.read())
                 if depotkey_merge(steam_path / 'config' / 'config.vdf', depots_config):
