@@ -26,6 +26,7 @@ def gen_config():
     default_config = {
         'github_persoal_token': '' ,
         'github_persoal_token_example': 'Bearer your_github_persoal_token',
+        'customize_steam_path': '',
     }
     with open("./appsettings.yaml", "w", encoding="utf-8") as f:
         f.write(yaml.dump(default_config))
@@ -145,8 +146,10 @@ def stool_add(depot_list):
     return True
 
 def get_steam_path():
+    config = load_config()
+    customize_steam_path = config.get('customize_steam_path', '')
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Software\Valve\Steam')
-    steam_path = Path(winreg.QueryValueEx(key, 'SteamPath')[0])
+    steam_path = Path(winreg.QueryValueEx(key, 'SteamPath')[0]) or customize_steam_path
     return steam_path
 
 def main(app_id):

@@ -1,3 +1,11 @@
+<div align="center">
+
+![Onekey](https://socialify.git.ci/ikun0014/Onekey/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto)
+![GitHub Repo Size](https://img.shields.io/github/repo-size/ikun0014/Onekey?style=for-the-badge)
+[![GitHub Release (with filter)](https://img.shields.io/github/v/release/ikun0014/Onekey?style=for-the-badge)](https://github.com/ikun0014/Onekey/releases/latest)
+[![GitHub All Releases](https://img.shields.io/github/downloads/ikun0014/Onekey/total?style=for-the-badge&color=violet)](https://github.com/ikun0014/Onekey/releases)
+[![GitHub License](https://img.shields.io/github/license/ikun0014/Onekey?style=for-the-badge)](https://github.com/ikun0014/Onekey/blob/main/LICENSE)
+
 # Onekey
 Steam收费游戏体验(无法享受官方的任何在线权益)  
 
