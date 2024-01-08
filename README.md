@@ -6,6 +6,8 @@
 [![GitHub All Releases](https://img.shields.io/github/downloads/ikun0014/Onekey/total?style=for-the-badge&color=violet)](https://github.com/ikun0014/Onekey/releases)
 [![GitHub License](https://img.shields.io/github/license/ikun0014/Onekey?style=for-the-badge)](https://github.com/ikun0014/Onekey/blob/main/LICENSE)
 
+</div>
+
 # Onekey
 Steam收费游戏体验(无法享受官方的任何在线权益)  
 
@@ -25,3 +27,13 @@ Steam正版平台不易，请尊重版权，支持正版。
 若对此有疑问请 mail to:  
 ikun0014+qq.com  
 (请将+替换成@)
+
+## Star 趋势图
+
+[![Stargazers over time](https://starchart.cc/ikun0014/Onekey.svg)](https://starchart.cc/ikun0014/Onekey)
+
+## 贡献者
+
+<a href="https://github.com/ikun0014/Onekey/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ikun0014/Onekey" />
+</a>
