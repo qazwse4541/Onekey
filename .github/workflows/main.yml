@@ -40,7 +40,7 @@ jobs:
           body_path: ./publish/changeLog.md
           prerelease: false
           draft: false
-          tag_name: ${{ github.sha }}
+          tag_name: 12.1
           files: |
             dist/Onekey_${{ github.sha }}.exe
         env:
