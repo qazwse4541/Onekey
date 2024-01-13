@@ -1,5 +1,7 @@
 <div align="center">
 
+![Onekey](https://socialify.git.ci/Onekey-Project/Onekey/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Auto)
+
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/Onekey-Project/Onekey?style=for-the-badge)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/Onekey-Project/Onekey/main.yml?style=for-the-badge)](https://github.com/Onekey-Project/Onekey/actions/workflows/build_beta.yml)
 [![GitHub Release (with filter)](https://img.shields.io/github/v/release/Onekey-Project/Onekey?style=for-the-badge)](https://github.com/Onekey-Project/Onekey/releases/latest)
