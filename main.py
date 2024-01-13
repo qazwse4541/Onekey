@@ -17,10 +17,10 @@ from requests.packages import urllib3
 
 urllib3.disable_warnings()
 
-print('当前版本12.1')
+print('当前版本12.2')
 print('作者ikun、wxy1343')
 print('声明:请勿用于商业用途,否则后果自负')
-print('增加功能: BlankTMing/ManifestAutoUpdate自定义Steam路径')
+print('杂物事: 迁移Onekey主要清单库到组织')
 
 default = {
     'github_persoal_token': '' ,
@@ -56,8 +56,8 @@ def get(branch, path):
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/isKoi/Manifest-AutoUpdate/{branch}/{path}',
                 f'https://github.moeyy.xyz/https://raw.githubusercontent.com/qwq-xinkeng/awaqwqmain/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/qwq-xinkeng/awaqwqmain/{branch}/{path}',
-                f'https://github.moeyy.xyz/https://raw.githubusercontent.com/liaofulong/Manifest-AutoUpdate/{branch}/{path}',
-                f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/liaofulong/Manifest-AutoUpdate/{branch}/{path}',
+                f'https://github.moeyy.xyz/https://raw.githubusercontent.com/Onekey-Project/Manifest-AutoUpdate/{branch}/{path}',
+                f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/Onekey-Project/Manifest-AutoUpdate/{branch}/{path}',
                 f'https://github.moeyy.xyz/https://raw.githubusercontent.com/BlankTMing/ManifestAutoUpdate/{branch}/{path}',
                 f'https://githubapi.ikunshare.link/https://raw.githubusercontent.com/BlankTMing/ManifestAutoUpdate/{branch}/{path}']
 
@@ -175,7 +175,7 @@ def main(app_id):
         'https://api.github.com/repos/lls7890/Repository',
         'https://api.github.com/repos/isKoi/Manifest-AutoUpdate',
         'https://api.github.com/repos/qwq-xinkeng/awaqwqmain',
-        'https://api.github.com/repos/liaofulong/Manifest-AutoUpdate'
+        'https://api.github.com/repos/Onekey-Project/Manifest-AutoUpdate'
     ]
 
     latest_date = None
