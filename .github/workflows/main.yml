@@ -20,21 +20,21 @@ jobs:
           submodules: recursive
 
       - name: 安装Python 3.10
-        uses: actions/setup-python@v5.5.0
+        uses: actions/setup-python@v3
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
+      - name: 安装依赖
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 打包exe
+      - name: 打包 EXE
         run: |
           pip install pyinstaller
           pyinstaller -F main.py -n Onekey_${{ github.sha }}
 
-      - name: Release
+      - name: 发布 Release
         uses: softprops/action-gh-release@v1
         with:
           body_path: ./publish/changeLog.md
