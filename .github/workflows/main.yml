@@ -32,7 +32,7 @@ jobs:
       - name: 打包exe
         run: |
           pip install pyinstaller
-          pyinstaller -F main.py -n Onekey_${{ github.sha 
+          pyinstaller -F main.py -n Onekey_${{ github.sha }}
 
       - name: Release
         uses: softprops/action-gh-release@v1

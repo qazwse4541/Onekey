@@ -17,19 +17,20 @@ from requests.packages import urllib3
 
 urllib3.disable_warnings()
 
-print('当前版本12.0')
+print('当前版本12.1')
 print('作者ikun、wxy1343')
 print('声明:请勿用于商业用途,否则后果自负')
-print('增加清单库: BlankTMing/ManifestAutoUpdate')
+print('增加功能: BlankTMing/ManifestAutoUpdate自定义Steam路径')
+
+default = {
+    'github_persoal_token': '' ,
+    'github_persoal_token_example': 'Bearer your_github_persoal_token',
+    'customize_steam_path': 'Your steam path, generally obtained automatically.',
+}
 
 def gen_config():
-    default_config = {
-        'github_persoal_token': '' ,
-        'github_persoal_token_example': 'Bearer your_github_persoal_token',
-        'customize_steam_path': '',
-    }
     with open("./appsettings.yaml", "w", encoding="utf-8") as f:
-        f.write(yaml.dump(default_config))
+        f.write(yaml.dump(default))
         f.close()
         if (not os.getenv('build')):
             print('首次启动或配置文件被删除，已创建默认配置文件')
